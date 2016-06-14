@@ -1,0 +1,11 @@
+HOSTS:
+  centos-5-x64:
+    roles:
+      - agent
+    platform: el-5-x86_64
+    image: centos:5.11
+    hypervisor: docker
+    docker_preserve_image: true
+CONFIG:
+  log_level: verbose
+  type: aio

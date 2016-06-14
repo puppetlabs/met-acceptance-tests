@@ -1,0 +1,41 @@
+HOSTS:
+#  centos6-64-master:
+#    roles:
+#      - master
+#      - database
+#      - dashboard
+#      - agent
+#    platform: el-6-x86_64
+#    image: centos:6.6
+#    hypervisor: docker
+#    docker_preserve_image: true
+#    docker_image_commands:
+#      - 'yum install -y pciutils system-logos which libxml2 dmidecode net-tools virt-what apr apr-util curl mailcap libjpeg libtool-ltdl unixODBC libxslt zlib tar'
+#    ip: 10.0.0.1
+#  centos6-64-agent:
+#    roles:
+#      - default
+#      - agent
+#    platform: el-6-x86_64
+#    image: centos:6.6
+#    hypervisor: docker
+#    docker_preserve_image: true
+#    docker_image_commands:
+#      - 'yum install -y tar'
+#    ip: 10.0.0.2
+  centos5-64-agent:
+    roles:
+      - agent
+    platform: el-5-x86_64
+    image: centos:5.11
+    hypervisor: docker
+    docker_preserve_image: true
+    docker_image_commands:
+      - 'yum install -y tar'
+    provision: false
+    ip: 10.0.0.3
+CONFIG:
+  log_level: verbose
+  type: aio
+#  pe_ver: 2016.1.1
+#  pe_dir: /Users/glarkin/Downloads
