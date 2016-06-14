@@ -1,9 +1,9 @@
 HOSTS:
-  centos-5-x64:
+  lon-centos-6-x64:
     roles:
       - agent
-    platform: el-5-x86_64
-    image: centos:5.11
+    platform: el-6-x86_64
+    image: centos:6.6
     hypervisor: docker
     docker_preserve_image: true
 CONFIG:

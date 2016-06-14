@@ -1,0 +1,11 @@
+HOSTS:
+  nyc-centos-6-x64:
+    roles:
+      - agent
+    platform: el-6-x86_64
+    image: centos:6.6
+    hypervisor: docker
+    docker_preserve_image: true
+CONFIG:
+  log_level: verbose
+  type: aio

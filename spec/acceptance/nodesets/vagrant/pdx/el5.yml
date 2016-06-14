@@ -1,0 +1,10 @@
+HOSTS:
+  pdx-centos-5-x64:
+    roles:
+      - agent
+    platform: el-5-x86_64
+    box: puppetlabs/centos-5.11-64-nocm
+    hypervisor: vagrant
+CONFIG:
+  log_level: verbose
+  type: aio
