@@ -6,7 +6,7 @@ describe 'nyc-datacenter-tests', :if => !UNSUPPORTED_PLATFORMS.include?(fact('os
 
     it 'should work with no errors' do
       pp = <<-EOS
-        include profiles::base
+        include profile::base
       EOS
 
       apply_manifest(pp, :catch_failures => true)
