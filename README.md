@@ -7,7 +7,7 @@ The case study is a Gitbook housed at: [https://www.gitbook.com/book/puppet-part
 
 These acceptance tests are designed to validate the Puppet code produced by following the instructions in the MET case study. They check for the following configuration:
 
-* Existence of a class named "profile::base". This is a hard requirement so the acceptance tests have a starting point from which to include the rest of the classes implemented during the case study.
+* Existence of a class named "**profile::base**". This is a hard requirement so the acceptance tests have a starting point from which to include the rest of the classes implemented during the case study.
 * Proper configuration of the /etc/ntp.conf file across 3 datacenters - PDX, LON and NYC
 * Proper configuration of the /etc/resolv.conf file across 3 datacenters - PDX, LON and NYC
 * Proper configuration of the /etc/sysctl.conf across 2 operating systems - CentOS and Ubuntu
