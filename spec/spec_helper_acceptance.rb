@@ -8,12 +8,17 @@ UNSUPPORTED_PLATFORMS = ['Suse','windows','AIX','Solaris']
 # the SUT with the code produced from the MET case study
 proj_root = File.expand_path(File.join(File.dirname(__FILE__), '../..'))
 prod_env_root = File.join(proj_root, 'production')
+profile_module_root = File.join(prod_env_root, 'modules', 'profiles')
 hiera_yaml = File.join(prod_env_root, 'hiera.yaml')
-facts_root = File.join(prod_env_root, 'facts.d')
+facts_root = File.join(profile_module_root, 'facts.d')
 
 # Check if everything exists where it should and fail if it doesn't
 unless Dir.exists?(prod_env_root)
   fail_test "#{prod_env_root} does not exist - exiting"
+end
+
+unless Dir.exists?(profile_module_root)
+  fail_test "#{profile_module_root} does not exist - exiting"
 end
 
 unless File.exists?(hiera_yaml)

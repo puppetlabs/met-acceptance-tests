@@ -21,9 +21,7 @@ Clone the MET acceptance tests repository from [https://github.com/puppetlabs/me
 ```
 production
 ├── environment.conf
-├── facts.d
-│   └── # Custom fact(s) 
-├── hiera.yaml
+├── hiera.yaml # Normally stored in /etc/puppetlabs/puppet
 ├── hieradata
 │   ├── # Hiera data files
 │   ├── ...
@@ -32,13 +30,16 @@ production
 │   └── site.pp
 └── modules
     ├── profile
-    │   └── manifests
-    │       ├── # Profile module classes
-    │       ├── ...
-    │       └── # Profile module classes
+    │   ├── manifests
+    │   │   ├── # Profile module classes
+    │   │   ├── ...
+    │   │   └── # Profile module classes
+    │   └── facts.d # External fact(s)
     └── role
         └── manifests
-            └── init.pp
+            ├── # Role module classes
+            ├── ...
+            └── # Role module classes
 ```
 
 This .tar.gz file should be extracted to the same directory where the met-acceptance-tests repository is housed, e.g.:
