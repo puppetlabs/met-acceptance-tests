@@ -13,10 +13,6 @@ describe 'lon-datacenter-tests', :if => !UNSUPPORTED_PLATFORMS.include?(fact('os
       expect(apply_manifest(pp, :catch_failures => true).exit_code).to be_zero
    end
 
-    describe service('ntpd') do
-      it { should be_running }
-    end
-
     describe file('/etc/ntp.conf') do
       its(:content) { should match /^server\s+0\.uk\.pool\.ntp\.org/ }
     end

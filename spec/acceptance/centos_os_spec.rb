@@ -11,7 +11,11 @@ describe 'centos-os-tests', :if => !UNSUPPORTED_PLATFORMS.include?(fact('osfamil
 
       apply_manifest(pp, :catch_failures => true)
       expect(apply_manifest(pp, :catch_failures => true).exit_code).to be_zero
-   end
+    end
+
+    describe service('ntpd') do
+      it { should be_running }
+    end
 
     describe file('/etc/sysctl.conf') do
       its(:content) { should match /^net.ipv4.conf.all.send_redirects\s*=\s*0$/ }
@@ -66,5 +70,5 @@ describe 'centos-os-tests', :if => !UNSUPPORTED_PLATFORMS.include?(fact('osfamil
     describe file('/etc/sysctl.conf') do
       its(:content) { should match /^net\.ipv4\.conf\.default\.rp_filter\s*=\s*1$/ }
     end
- end
+  end
 end

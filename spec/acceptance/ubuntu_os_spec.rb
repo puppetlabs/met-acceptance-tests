@@ -11,7 +11,11 @@ describe 'ubuntu-os-tests', :if => !UNSUPPORTED_PLATFORMS.include?(fact('osfamil
 
       apply_manifest(pp, :catch_failures => true)
       expect(apply_manifest(pp, :catch_failures => true).exit_code).to be_zero
-   end
+    end
+
+    describe service('ntp') do
+      it { should be_running }
+    end
 
     describe file('/etc/sysctl.conf') do
       its(:content) { should match /^kernel\.shmall\s*=\s*2097152$/ }
