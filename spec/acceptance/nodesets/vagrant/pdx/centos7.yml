@@ -6,5 +6,5 @@ HOSTS:
     box: puppetlabs/centos-7.2-64-nocm
     hypervisor: vagrant
 CONFIG:
-  log_level: verbose
+  log_level: info
   type: aio

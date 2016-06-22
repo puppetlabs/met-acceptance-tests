@@ -1,5 +1,5 @@
 HOSTS:
-  lon-ubuntu-12-x64:
+  pdx-ubuntu-12-x64:
     roles:
       - agent
     platform: ubuntu-12.04-amd64
