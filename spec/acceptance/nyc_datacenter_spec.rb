@@ -18,19 +18,19 @@ describe 'nyc-datacenter-tests', :if => !UNSUPPORTED_PLATFORMS.include?(fact('os
     end
 
     describe file('/etc/ntp.conf') do
-      its(:content) { should match /^server\s+0\.us\.pool\.ntp\.org$/ }
+      its(:content) { should match /^server\s+0\.us\.pool\.ntp\.org/ }
     end
 
     describe file('/etc/ntp.conf') do
-      its(:content) { should match /^server\s+1\.us\.pool\.ntp\.org$/ }
+      its(:content) { should match /^server\s+1\.us\.pool\.ntp\.org/ }
     end
 
     describe file('/etc/ntp.conf') do
-      its(:content) { should match /^server\s+2\.us\.pool\.ntp\.org$/ }
+      its(:content) { should match /^server\s+2\.us\.pool\.ntp\.org/ }
     end
 
     describe file('/etc/ntp.conf') do
-      its(:content) { should match /^server\s+3\.us\.pool\.ntp\.org$/ }
+      its(:content) { should match /^server\s+3\.us\.pool\.ntp\.org/ }
     end
 
     describe file('/etc/resolv.conf') do

@@ -18,19 +18,19 @@ describe 'lon-datacenter-tests', :if => !UNSUPPORTED_PLATFORMS.include?(fact('os
     end
 
     describe file('/etc/ntp.conf') do
-      its(:content) { should match /^server\s+0\.uk\.pool\.ntp\.org$/ }
+      its(:content) { should match /^server\s+0\.uk\.pool\.ntp\.org/ }
     end
 
     describe file('/etc/ntp.conf') do
-      its(:content) { should match /^server\s+1\.uk\.pool\.ntp\.org$/ }
+      its(:content) { should match /^server\s+1\.uk\.pool\.ntp\.org/ }
     end
 
     describe file('/etc/ntp.conf') do
-      its(:content) { should match /^server\s+2\.uk\.pool\.ntp\.org$/ }
+      its(:content) { should match /^server\s+2\.uk\.pool\.ntp\.org/ }
     end
 
     describe file('/etc/ntp.conf') do
-      its(:content) { should match /^server\s+3\.uk\.pool\.ntp\.org$/ }
+      its(:content) { should match /^server\s+3\.uk\.pool\.ntp\.org/ }
     end
 
     describe file('/etc/resolv.conf') do
