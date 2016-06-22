@@ -55,14 +55,37 @@ The MET acceptance tests expect the directory "production" to be located in a pa
 Once the code directory to be tested is in place, change directory into `met-acceptance-tests` and run the following command:
 
 ```
-BEAKER_set=vagrant/<DATACENTER>/el<VERSION> rake beaker
+BEAKER_set=vagrant/<DATACENTER>/<OS><VERSION> rake beaker
 ```
 
-The value of `<DATACENTER>` can be one of `pdx`, `lon`, or `nyc`. The value of `<VERSION>` can be one of `5`, `6`, or `7`.
+The value of `<DATACENTER>` can be one of:
 
-This command will launch the acceptance tests and simulate the SUT as if it were housed in the specified datacenter with the operating system type and version. For each of those combinations, different system configurations will be expected on the SUT.
+* `pdx`
+* `lon`
+* `nyc`
 
-Any deviations from the expected configuration will be logged at the end of the Beaker run. A successful run will exit with messages like the following:
+The value of `<OS>` can be one of:
+
+* `centos`
+* `ubuntu`
+
+When `<OS>` is `centos`, the value of `<VERSION>` can be one of:
+
+* `5`
+* `6`
+* `7`
+
+When `<OS>` is `ubuntu`, the value of `<VERSION>` can be one of:
+
+* `12`
+* `14`
+* `16`
+
+There are 18 different permutations of the command to test all datacenters with all versions of the available operating systems.
+
+The command launches the acceptance tests and simulates the SUT as if it were housed in the specified datacenter with the operating system type and version. For each of the combinations, different system configurations will be expected on the SUT.
+
+Any deviations from the expected configuration will be logged at the end of the Beaker run. A successful run exits with messages like the following:
 
 ```
 pdx-centos-6-x64 13:53:52$ /bin/sh -c cat\ /etc/resolv.conf\ 2\>\ /dev/null\ \|\|\ echo\ -n
