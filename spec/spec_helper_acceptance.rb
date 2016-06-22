@@ -8,7 +8,7 @@ UNSUPPORTED_PLATFORMS = ['Suse','windows','AIX','Solaris']
 # the SUT with the code produced from the MET case study
 proj_root = File.expand_path(File.join(File.dirname(__FILE__), '../..'))
 prod_env_root = File.join(proj_root, 'production')
-profile_module_root = File.join(prod_env_root, 'modules', 'profiles')
+profile_module_root = File.join(prod_env_root, 'modules', 'profile')
 hiera_yaml = File.join(prod_env_root, 'hiera.yaml')
 facts_root = File.join(profile_module_root, 'facts.d')
 
