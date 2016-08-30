@@ -1,5 +1,5 @@
 HOSTS:
-  pdx-centos-7-x64:
+  pdx-agent-1663.puppet.lan:
     roles:
       - agent
     platform: el-7-x86_64

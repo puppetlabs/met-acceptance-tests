@@ -3,20 +3,27 @@ This repository houses the acceptance tests to confirm that the MET (Mock Engage
 
 The case study is a Gitbook housed at: [https://www.gitbook.com/book/puppet-partner-enablement/mock-engagement-tool-case-study/details](https://www.gitbook.com/book/puppet-partner-enablement/mock-engagement-tool-case-study/details)
 
+#### Table of Contents
+
+1. [Overview](#overview)
+1. [Setup](#setup)
+1. [Usage](#usage) 
+
 ### Overview
 
 These acceptance tests are designed to validate the Puppet code produced by following the instructions in the MET case study. They check for the following configuration:
 
 * Existence of a class named "**profile::base**". This is a hard requirement so the acceptance tests have a starting point from which to include the rest of the classes implemented during the case study.
-* Proper configuration of the /etc/ntp.conf file across 3 datacenters - PDX, LON and NYC
-* Proper configuration of the /etc/resolv.conf file across 3 datacenters - PDX, LON and NYC
-* Proper configuration of the /etc/sysctl.conf across 2 operating systems - CentOS and Ubuntu
+* Proper configuration of the `/etc/ntp.conf` file across 3 datacenters - PDX, LON and NYC
+* Proper configuration of the `/etc/resolv.conf` file across 3 datacenters - PDX, LON and NYC
+* Proper configuration of the `/etc/sysctl.conf` across 2 operatingsystems - CentOS and Ubuntu
 
-The acceptance tests use the actual hiera.yaml, Hiera data and Puppet code submitted after completion of the case study. The "spec helper" copies all of the files into the SUT (system under test) to the proper locations before the tests are launched.
+The acceptance tests use the actual `hiera.yaml`, Hiera data and Puppet code submitted after completion of the case study. The `spec_helper` copies all of the files into the SUT (system under test) to the proper locations before the tests are launched.
 
-### Usage
+### Setup
 
-Clone the MET acceptance tests repository from [https://github.com/puppetlabs/met-acceptance-tests.git](https://github.com/puppetlabs/met-acceptance-tests.git). The submitted case study code should be in the form of a .tar.gz file with the following directory structure:
+#### Directory Structure
+Clone the MET acceptance tests repository from [https://github.com/puppetlabs/met-acceptance-tests.git](https://github.com/puppetlabs/met-acceptance-tests.git). The submitted case study code should be in the form of a `.tar.gz` file with the following directory structure:
 
 ```
 production
@@ -42,7 +49,7 @@ production
             └── # Role module classes
 ```
 
-This .tar.gz file should be extracted to the same directory where the met-acceptance-tests repository is housed, e.g.:
+This `.tar.gz` file should be extracted to the same directory where the met-acceptance-tests repository is housed, e.g.:
 
 ```
 ├── met-acceptance-tests
@@ -50,12 +57,31 @@ This .tar.gz file should be extracted to the same directory where the met-accept
 ├── production
 ```
 
-The MET acceptance tests expect the directory "production" to be located in a parallel directory.
+The MET acceptance tests expect the directory `production` to be located in a parallel directory.
+
+#### Toolchain
+
+This setup uses `Bundler` to avoid mixing with your system Ruby and to make a repeatable implementation.  From the `met-acceptance-tests` directory:
+
+``` 
+gem install bundler
+bundler install --path vendor/cache
+```
+
+For more information, go to [http://bundler.io/](http://bundler.io/).
+
+### Usage
 
 Once the code directory to be tested is in place, change directory into `met-acceptance-tests` and run the following command:
 
 ```
-BEAKER_set=vagrant/<DATACENTER>/<OS><VERSION> rake beaker
+BEAKER_set=vagrant/<DATACENTER>/<OS><VERSION> bundle exec rake beaker
+```
+
+**Tip:** Beaker will destroy the test machine when the run is complete.  The leave the machine alive after the run for troubleshooting, instead run:
+
+```
+BEAKER_destroy=onpass BEAKER_set=vagrant/<DATACENTER>/<OS><VERSION> bundle exec rake beaker
 ```
 
 The value of `<DATACENTER>` can be one of:
