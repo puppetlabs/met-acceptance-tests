@@ -1,5 +1,5 @@
 HOSTS:
-  lon-centos-7-x64:
+  lon-agent-1323.puppet.lan:
     roles:
       - agent
     platform: el-7-x86_64

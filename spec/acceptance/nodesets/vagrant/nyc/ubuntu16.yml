@@ -1,5 +1,5 @@
 HOSTS:
-  nyc-ubuntu-16-x64:
+  nyc-agent-4164.puppet.lan:
     roles:
       - agent
     platform: ubuntu-16.04-amd64

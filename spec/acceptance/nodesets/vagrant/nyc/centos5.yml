@@ -1,5 +1,5 @@
 HOSTS:
-  nyc-centos-5-x64:
+  nyc-agent-4161.puppet.lan:
     roles:
       - agent
     platform: el-5-x86_64

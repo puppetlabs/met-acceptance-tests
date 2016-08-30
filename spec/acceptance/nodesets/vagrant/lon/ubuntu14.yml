@@ -1,5 +1,5 @@
 HOSTS:
-  lon-ubuntu-14-x64:
+  lon-agent-1325.puppet.lan:
     roles:
       - agent
     platform: ubuntu-14.04-amd64

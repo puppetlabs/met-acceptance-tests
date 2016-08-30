@@ -1,5 +1,5 @@
 HOSTS:
-  pdx-ubuntu-14-x64:
+  pdx-agent-1665.puppet.lan:
     roles:
       - agent
     platform: ubuntu-14.04-amd64
