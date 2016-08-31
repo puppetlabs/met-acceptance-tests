@@ -22,8 +22,8 @@ unless File.exists?(hiera_yaml)
   fail_test "#{hiera_yaml} does not exist - exiting"
 end
 
-unless Dir.exists?(facts_root)
-  fail_test "#{facts_root} does not exist - exiting"
+unless Dir.exists?(profile_module_root)
+  fail_test "#{profile_module_root} does not exist - exiting"
 end
 
 hosts.each do |host|
