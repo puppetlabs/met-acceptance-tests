@@ -18,10 +18,6 @@ unless Dir.exists?(prod_env_root)
   fail_test "#{prod_env_root} does not exist - exiting"
 end
 
-unless Dir.exists?(profile_module_root)
-  fail_test "#{profile_module_root} does not exist - exiting"
-end
-
 unless File.exists?(hiera_yaml)
   fail_test "#{hiera_yaml} does not exist - exiting"
 end
@@ -46,7 +42,7 @@ hosts.each do |host|
   # Get some files into place
   scp_to host, hiera_yaml, "#{codedir}/hiera.yaml"
   on host, "mkdir -p #{factpath}"
-  scp_to host, facts_root, factpath
+  scp_to host, facts_root, factpath if Dir.exists?(facts_root)
   scp_to host, prod_env_root, environmentpath
   on host, "#{puppetbin}/gem install r10k --no-rdoc --no-ri"
   on host, "#{puppetbin}/r10k puppetfile install --puppetfile #{environmentpath}/production/Puppetfile --moduledir #{environmentpath}/production/modules"
