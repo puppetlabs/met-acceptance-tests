@@ -35,7 +35,7 @@ production
 │   └── # Hiera data files
 ├── manifests
 │   └── site.pp
-└── modules
+└── site
     ├── profile
     │   ├── manifests
     │   │   ├── # Profile module classes
