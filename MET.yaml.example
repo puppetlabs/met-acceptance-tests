@@ -1,0 +1,3 @@
+met_key: /Users/ranjit/.ssh/met.pem
+git_url: 'git@git.example.com:puppet/control-repo.git'
+master_ip: 1.2.3.4

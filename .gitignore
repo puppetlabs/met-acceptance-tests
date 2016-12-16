@@ -4,3 +4,4 @@ tmp
 Gemfile.lock
 vendor/*
 .bundle/*
+MET.yaml

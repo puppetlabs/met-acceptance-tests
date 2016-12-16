@@ -23,12 +23,11 @@ The acceptance tests use the actual `hiera.yaml`, Hiera data and Puppet code sub
 ### Setup
 
 #### Directory Structure
-Clone the MET acceptance tests repository from [https://github.com/puppetlabs/met-acceptance-tests.git](https://github.com/puppetlabs/met-acceptance-tests.git). The submitted case study code should be in the form of a `.tar.gz` file with the following directory structure:
+Clone the MET acceptance tests repository from [https://github.com/puppetlabs/met-acceptance-tests.git](https://github.com/puppetlabs/met-acceptance-tests.git). The submitted case study control-repo should be  accessible with the `met.pem` and have the following directory structure:
 
 ```
 production
 ├── environment.conf
-├── hiera.yaml # Normally stored in /etc/puppetlabs/puppet
 ├── hieradata
 │   ├── # Hiera data files
 │   ├── ...
@@ -41,23 +40,22 @@ production
     │   │   ├── # Profile module classes
     │   │   ├── ...
     │   │   └── # Profile module classes
-    │   └── facts.d # External fact(s)
+    │   └── facts.d # Optional
     └── role
-        └── manifests
-            ├── # Role module classes
-            ├── ...
-            └── # Role module classes
+        ├── manifests
+        │   ├── # Role module classes
+        │   ├── ...
+        │   └── # Role module classes
+        └── facts.d # Optional
 ```
 
-This `.tar.gz` file should be extracted to the same directory where the met-acceptance-tests repository is housed, e.g.:
+The MET acceptance tests needs to know a few values.  Copy the `MET.yaml.example` to `MET.yaml` and populate the correct values.  For example:
 
 ```
-├── met-acceptance-tests
-├── ...
-├── production
+met_key: /Users/ranjit/.ssh/met.pem
+git_url: 'git@git.example.com:puppet/control-repo.git'
+master_ip: 1.2.3.4
 ```
-
-The MET acceptance tests expect the directory `production` to be located in a parallel directory.
 
 #### Toolchain
 
