@@ -22,4 +22,4 @@ gem 'rake'
 gem 'facter', *location_from_env('FACTER_GEM_VERSION')
 gem 'puppet', *location_from_env('PUPPET_GEM_VERSION')
 gem 'puppetlabs_spec_helper', '>= 1.2.1'
-
+gem 'r10k'
