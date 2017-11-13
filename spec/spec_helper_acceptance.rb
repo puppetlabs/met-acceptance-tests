@@ -50,7 +50,7 @@ sources:
     basedir: #{environmentpath}
     remote: #{git_url}
   RYAML
-  on host, "echo -e '#{r10k_yaml}' > #{host_r10k}"
+  on host, "echo -e '#{r10k_yaml}' > #{host_r10k}", :accept_all_exit_codes => true
   puts "=> Deployed r10k.yaml"
 
   # No rugged, using ssh config to indicate key
@@ -61,14 +61,14 @@ Host #{git_host}
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
   SSHC
-  on host, "echo -e '#{ssh_config}' > #{host_ssh_conf}"
+  on host, "echo -e '#{ssh_config}' > #{host_ssh_conf}", :accept_all_exit_codes => true
   puts "=> Deployed ssh config"
 
   # Install r10k
   on host, "#{puppetbin}/gem install r10k --no-rdoc --no-ri"
   puts "=> Installed r10k"
 
-  on host, "scp #{options} training@#{master_ip}:#{confdir}/hiera.yaml #{confdir}"
+  on host, "scp #{options} training@#{master_ip}:#{confdir}/hiera.yaml #{confdir}", :accept_all_exit_codes => true
   puts "=> Deployed hiera.yaml"
 
   # Private key is only accessible by sudo.
